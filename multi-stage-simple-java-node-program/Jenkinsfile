@@ -1,0 +1,25 @@
+pipeline{
+    agent none
+    stages{
+        stage('Java app - Backend'){
+            agent{
+                docker {image 'docker pull openjdk:24-slim'}
+            }
+            steps{
+                sh 'javac helloWorld.java'
+                sh 'java helloWorld'
+            }
+            
+        }
+    }
+    stages{
+        stage('Node - Frontend'){
+            agent{
+                docker {image 'node:slim'}
+            }
+            steps{
+                sh 'node frontend.js'
+            }
+        }
+    }
+}
