@@ -6,9 +6,9 @@ pipeline{
                 docker {image 'openjdk:24-slim'}
             }
             steps{
-                sh 'cp -r . .'
-                sh 'javac helloWorld.java'
-                sh 'java helloWorld'
+                sh 'cp helloWorld.java /tmp/helloWorld.java'
+                sh 'javac /tmp/helloWorld.java'
+                sh 'java /tmp/helloWorld'
             }
             
         }
@@ -17,8 +17,8 @@ pipeline{
                 docker {image 'node:slim'}
             }
             steps{
-                sh 'cp -r . .'
-                sh 'node frontend.js'
+                sh 'cp frontend.js /tmp/frontend.js'
+                sh 'node /tmp/frontend.js'
             }
         }
     }
