@@ -6,6 +6,7 @@ pipeline{
                 docker {image 'openjdk:24-slim'}
             }
             steps{
+                sh 'ls -l'
                 sh 'ls -l helloWorld.java'
                 sh 'cp helloWorld.java /tmp/helloWorld.java'
                 sh 'javac /tmp/helloWorld.java'
