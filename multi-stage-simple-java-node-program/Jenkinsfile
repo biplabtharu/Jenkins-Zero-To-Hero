@@ -6,8 +6,10 @@ pipeline{
                 docker {image 'openjdk:24-slim'}
             }
             steps{
-                sh 'cp multi-stage-simple-java-node-program/helloWorld.java /tmp/helloWorld.java'
-                sh 'ls -l tmp'
+                sh 'cp multi-stage-simple-java-node-program/helloWorld.java helloWorld.java'
+                sh 'ls -l'
+                sh 'javac helloWorld.java'
+                sh 'java helloWorld'
             }
             
         }
@@ -16,8 +18,8 @@ pipeline{
                 docker {image 'node:slim'}
             }
             steps{
-                sh 'cp multi-stage-simple-java-node-program/frontend.js /tmp/frontend.js'
-                sh 'node /tmp/frontend.js'
+                sh 'cp multi-stage-simple-java-node-program/frontend.js frontend.js'
+                sh 'node frontend.js'
             }
         }
     }
