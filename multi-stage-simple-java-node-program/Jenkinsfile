@@ -11,8 +11,6 @@ pipeline{
             }
             
         }
-    }
-    stages{
         stage('Node - Frontend'){
             agent{
                 docker {image 'node:slim'}
