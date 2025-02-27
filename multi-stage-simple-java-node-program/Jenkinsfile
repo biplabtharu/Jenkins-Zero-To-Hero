@@ -8,7 +8,7 @@ pipeline{
             steps{
                 sh 'ls -l'
                 sh 'ls -l helloWorld.java'
-                sh 'cp helloWorld.java /tmp/helloWorld.java'
+                sh 'cp multi-stage-simple-java-node-program/helloWorld.java /tmp/helloWorld.java'
                 sh 'javac /tmp/helloWorld.java'
                 sh 'java /tmp/helloWorld'
             }
@@ -20,7 +20,7 @@ pipeline{
             }
             steps{
                 sh 'ls -l frontend.js'
-                sh 'cp frontend.js /tmp/frontend.js'
+                sh 'cp multi-stage-simple-java-node-program/frontend.js /tmp/frontend.js'
                 sh 'node /tmp/frontend.js'
             }
         }
