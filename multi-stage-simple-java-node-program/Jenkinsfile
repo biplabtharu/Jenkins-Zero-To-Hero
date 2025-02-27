@@ -1,16 +1,7 @@
 pipeline{
     agent none
     stages{
-        stage('Java app - Backend'){
-            agent{
-                docker {image 'openjdk:24-slim'}
-            }
-            steps{
-                sh 'javac multi-stage-simple-java-node-program/helloWorld.java'
-                sh 'java multi-stage-simple-java-node-program/helloWorld'
-            }
-            
-        }
+     
         stage('Node - Frontend'){
             agent{
                 docker {image 'node:slim'}
