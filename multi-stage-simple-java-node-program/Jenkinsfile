@@ -3,7 +3,7 @@ pipeline{
     stages{
         stage('Java app - Backend'){
             agent{
-                docker {image 'docker pull openjdk:24-slim'}
+                docker {image 'openjdk:24-slim'}
             }
             steps{
                 sh 'javac helloWorld.java'
